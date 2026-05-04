@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useLanguage } from './Languages';
 
 export default function Sidebar() {
@@ -5,14 +6,24 @@ export default function Sidebar() {
 
     return (
         <div className="sidebar">
-            <a href="/Home">{t('home')}</a>
-            <a href="/crear">{t('create')}</a>
-            <a href="/notifications">{t('notifications')}</a>
-            <a href="/messages">{t('messages')}</a>
-            <a href="/settings">{t('settings')}</a>
+            <NavLink to="/home" className={({ isActive }) => (isActive ? 'active' : '')}>
+                {t('home')}
+            </NavLink>
+            <NavLink to="/crear" className={({ isActive }) => (isActive ? 'active' : '')}>
+                {t('create')}
+            </NavLink>
+            <NavLink to="/notifications" className={({ isActive }) => (isActive ? 'active' : '')}>
+                {t('notifications')}
+            </NavLink>
+            <NavLink to="/messages" className={({ isActive }) => (isActive ? 'active' : '')}>
+                {t('messages')}
+            </NavLink>
+            <NavLink to="/settings" className={({ isActive }) => (isActive ? 'active' : '')}>
+                {t('settings')}
+            </NavLink>
 
             <div className="logout">
-                <a href="/logout">{t('logout')}</a>
+                <NavLink to="/logout">{t('logout')}</NavLink>
             </div>
         </div>
     );
